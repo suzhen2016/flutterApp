@@ -8,13 +8,72 @@ class EditPage extends StatelessWidget {
   	Widget build(BuildContext context) {
 		return Scaffold(
 			appBar: AppBar(
-				title: Text("知鱼行"),
-				centerTitle: true,
-				leading: IconButton(
-					icon:Icon(Icons.arrow_back_ios),
+				title: Text("中国梦"),
+				// title: Container(
+				// 	color: Colors.white10,
+				// 	child: Row(
+				// 		children: <Widget>[Text('标题1'), Text('标题2')],)
+				// ),
+				centerTitle: true, // 是否居中
+				elevation : 0, // 底部阴影
+				leading :IconButton( // 左上角图标
+					icon:Icon(
+						Icons.arrow_back_ios,
+						textDirection: TextDirection.ltr,
+						semanticLabel: '返回',
+						
+					),
+					tooltip: '返回',
 					onPressed:() => Navigator.pop(context, false),
 				),
+				// leading: Row(
+				// 	mainAxisAlignment: MainAxisAlignment.start,
+				// 	children: <Widget>[
+				// 		IconButton( // 左上角图标
+				// 			icon:Icon(
+				// 				Icons.arrow_back_ios,
+				// 				textDirection: TextDirection.ltr,
+				// 				semanticLabel: '返回',
+								
+				// 			),
+				// 			tooltip: '返回',
+				// 			onPressed:() => Navigator.pop(context, false),
+				// 		),
+				// 		Expanded(
+				// 			child:Text("返会", style:TextStyle(fontSize: 18.0),)
+				// 		),
+				// ],),
+				automaticallyImplyLeading: false,
+				// backgroundColor: Colors.red[400],
+				flexibleSpace: Container(
+					decoration: BoxDecoration(
+						gradient: LinearGradient(colors: [Colors.yellow, Colors.pink]),
+					),
+				),
 			),
+
+		// 首页导航
+		// 	appBar: PreferredSize(
+		// 		child: Container(
+		// 			width: double.infinity,
+		// 			height: double.infinity,
+		// 			decoration: BoxDecoration(
+		// 			gradient: LinearGradient(colors: [Colors.yellow, Colors.pink])),
+		// 			child: SafeArea(
+		// 				child: Padding(
+		// 					padding: EdgeInsets.all(0.0),
+		// 					child: Container(
+		// 						width: double.infinity,
+		// 						child: Center(
+		// 							child: Text('中国梦',style: TextStyle(color: Colors.white,fontSize: 20.0,fontWeight: FontWeight.w400 )),
+		// 						)
+		// 					)
+		// 				),
+		// 			),
+		// 		),
+		// 		preferredSize: Size(double.infinity, 60)
+		//   ),
+
 			body: Scrollbar(
 				child: SingleChildScrollView(
 					padding: EdgeInsets.all(12.0),
@@ -24,15 +83,15 @@ class EditPage extends StatelessWidget {
 							crossAxisAlignment: CrossAxisAlignment.start,
 							children: <Widget>[
 								// 标题
-								Padding(
-									padding: EdgeInsets.all(12.0),
-									child: Container(
-										width: double.infinity,
-										child: Center(
-											child: Text('中国梦',style: TextStyle(color: Colors.purple,fontSize: 25.0,fontWeight: FontWeight.w500 )),
-										)
-									)
-								),
+								// Padding(
+								// 	padding: EdgeInsets.all(12.0),
+								// 	child: Container(
+								// 		width: double.infinity,
+								// 		child: Center(
+								// 			child: Text('中国梦',style: TextStyle(color: Colors.purple,fontSize: 25.0,fontWeight: FontWeight.w500 )),
+								// 		)
+								// 	)
+								// ),
 								// 段落
 								RichText(
 									textAlign: TextAlign.left,
@@ -47,7 +106,7 @@ class EditPage extends StatelessWidget {
 								// 图片
 								Padding(
 									// 上下左右各添加8像素补白
-									padding: EdgeInsets.all(8.0),
+									padding: EdgeInsets.all(0.0),
 									child: Card(
 										shape: RoundedRectangleBorder(
 											borderRadius: BorderRadiusDirectional.circular(15)),
@@ -87,7 +146,7 @@ class EditPage extends StatelessWidget {
 								// 图片
 								Padding(
 									// 上下左右各添加8像素补白
-									padding: EdgeInsets.all(8.0),
+									padding: EdgeInsets.all(0.0),
 									child: Card(
 										shape: RoundedRectangleBorder(
 											borderRadius: BorderRadiusDirectional.circular(15)),
@@ -114,7 +173,7 @@ class EditPage extends StatelessWidget {
 							
 								Padding(
 									// 上下左右各添加8像素补白
-									padding: EdgeInsets.all(8.0),
+									padding: EdgeInsets.all(0.0),
 									child: Card(
 										shape: RoundedRectangleBorder(
 											borderRadius: BorderRadiusDirectional.circular(15)),

@@ -11,9 +11,9 @@ class RecordPage extends StatefulWidget {
 class _RecordPageState extends State<RecordPage> {
   @override
   	Widget build(BuildContext context) {
-	Widget redBox = DecoratedBox(
-		decoration: BoxDecoration(color: Colors.red), // 背景颜色
-	);
+    Widget redBox = DecoratedBox(
+      decoration: BoxDecoration(color: Colors.red), // 背景颜色
+    );
 	//下划线widget预定义以供复用。  
     // Widget divider1 = Divider(color: Colors.blue,);
     // Widget divider2 = Divider(color: Colors.green);

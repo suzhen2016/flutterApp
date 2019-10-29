@@ -48,10 +48,10 @@ class _MyPageState extends State<MyPage>{
 									labelText: "用户名",
 									hintText: "用户名或邮箱",
 									prefixIcon: Icon(Icons.person),
-									helperText: '嘻嘻嘻',
+									helperText: '嘻嘻',
 								),
 								// textDirection: TextDirection.rtl,
-								maxLength : 30,
+								// maxLength : 30,
 								onChanged: (value) {
 									this.setState(() {
 										this._unameController.text = value;
@@ -81,6 +81,31 @@ class _MyPageState extends State<MyPage>{
 								},
 								obscureText: true,
 							),
+							Text('安徽大声道按个大声道'),
+							Text(this._userName),
+							// Text('${this._unameController.text}'),
+							TextField(
+								textAlign: TextAlign.start,
+								// autofocus: true,
+								controller: this._unameController,
+								keyboardType: TextInputType.multiline,
+								maxLines: null,
+								decoration: InputDecoration(
+									
+									// labelText: "用户名",
+									// hintText: "用户名或邮箱",
+									// prefixIcon: Icon(Icons.person),
+									// helperText: '嘻嘻嘻',
+								),
+								// textDirection: TextDirection.rtl,
+								// maxLength : 30,
+								onChanged: (value) {
+									this.setState(() {
+										this._unameController.text = value;
+										this._userName = value;
+									});
+								},
+							),
 							RaisedButton(
 								child: Text("赋值"),
 								onPressed: () {
@@ -99,9 +124,6 @@ class _MyPageState extends State<MyPage>{
 									print('登录请求条件 ${this.param}');
 								},
 							),
-							Text('安徽大声道按个大声道'),
-							Text(this._userName),
-							Text('${this._unameController.text}')
 						],
 					)
 				),

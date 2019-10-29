@@ -30,6 +30,21 @@ class _MyHomePageState extends State<MyHomePage> {
 		});
 	}
 
+	// 返回每个隐藏的菜单项
+	selectView(IconData icon, String text, String id) {
+		return new PopupMenuItem<String>(
+			value: id,
+			child: new Row(
+				mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+				children: <Widget>[
+					new Icon(icon, color: Colors.blue),
+					new Text(text),
+				],
+			)
+		);
+	}
+
+
   	@override
   	Widget build(BuildContext context) {
     	return Scaffold(
@@ -37,6 +52,47 @@ class _MyHomePageState extends State<MyHomePage> {
 				title: Text(_bar[_selectedIndex]),
 				automaticallyImplyLeading : false,
 				centerTitle: true,
+				elevation:0,
+				
+				actions: <Widget>[
+					// 非隐藏的菜单
+					new IconButton(
+						icon: new Icon(Icons.add_alarm),
+						tooltip: 'Add Alarm',
+						onPressed: () {}
+					),
+					// 隐藏的菜单
+					new PopupMenuButton<String>(
+						itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+							this.selectView(Icons.message, '发起群', 'A'),
+							this.selectView(Icons.group_add, '添加服务', 'B'),
+							this.selectView(Icons.cast_connected, '扫一扫码', 'C'),
+						],
+						onSelected: (String action) {
+							// 点击选项的时候
+							switch (action) {
+								case 'A': break;
+								case 'B': break;
+								case 'C': break;
+							}
+						},
+					),
+				],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			),
 			bottomNavigationBar: BottomNavigationBar( // 底部导航
 				items: <BottomNavigationBarItem>[
