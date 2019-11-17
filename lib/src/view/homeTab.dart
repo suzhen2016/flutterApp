@@ -73,98 +73,182 @@ class HomeTabPage extends StatelessWidget {
 						Padding( 
 							// 显示进度条  可滚动的
 							// child: SingleChildScrollView(
-								padding: EdgeInsets.all(16.0),
-								// 布局开始
-								// child: Center(
-									child: Column(
-										// 覆盖竖行排列的默认顺序
-										mainAxisAlignment: MainAxisAlignment.start,
-										children: <Widget>[
-											// E：行布局实现
-											Row(
-												mainAxisAlignment: MainAxisAlignment.start,
-												children: <Widget>[
-													new ClipOval(
-														child: Container(
-															// margin: EdgeInsets.only(left: 10, right: 10),
-															width: 50,
-															height: 50,
-															color: Colors.red,
-															child: Center(
-																child: Text('8',style: Theme.of(context).textTheme.display1),
-															)
-														),
-													),
-													new ClipOval(
-														child: Container(
-															width: 50,
-															height: 50,
-															color: Colors.red,
-														),
-													),
-													new ClipOval(
-														child: Container(
-															width: 50,
-															height: 50,
-															color: Colors.red,
-															child: Center(
-																child: Text('88',style: Theme.of(context).textTheme.display1),
-															)
-														),
-													),
-													new ClipOval(
-														child: Container(
-															width: 50,
-															height: 50,
-															color: Colors.red,
-															child: Text('冀',
-																textAlign: TextAlign.center,
-																style: TextStyle(
-																	fontSize: 20.0,
-																	height: 1.4,
-																	color: Colors.white,
-																)
-															),
-														),
-													),
-												],
-											),
+                            padding: EdgeInsets.all(16.0),
+                            // 布局开始
+                            // child: Center(
+                            child: Column(
+                                // 覆盖竖行排列的默认顺序
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                    // E：行布局实现
+                                    Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                            new ClipOval(
+                                                child: Container(
+                                                    width: 50,
+                                                    height: 50,
+                                                    color: Colors.red,
+                                                    child: Center(
+                                                        child: Text('8',style: Theme.of(context).textTheme.display1),
+                                                    )
+                                                ),
+                                            ),
+                                            new ClipOval(
+                                                child: Container(
+                                                    width: 50,
+                                                    height: 50,
+                                                    color: Colors.red,
+                                                ),
+                                            ),
+                                            new ClipOval(
+                                                child: Container(
+                                                    width: 50,
+                                                    height: 50,
+                                                    color: Colors.red,
+                                                    child: Center(
+                                                        child: Text('88',style: Theme.of(context).textTheme.display1),
+                                                    )
+                                                ),
+                                            ),
+                                            new ClipOval(
+                                                child: Container(
+                                                    width: 50,
+                                                    height: 50,
+                                                    color: Colors.red,
+                                                    child: Center(
+                                                       child: Text('冀',
+                                                        textAlign: TextAlign.center,
+                                                        style: TextStyle(
+                                                            fontSize: 24.0,
+                                                            height: 1.4,
+                                                            color: Colors.white,
+                                                        )
+                                                    ),
+                                                    )
+                                                    
+                                                ),
+                                            ),
+                                            new ClipOval(
+                                                child: Container(
+                                                    width: 50,
+                                                    height: 50,
+                                                    color: Colors.red,
+                                                    child: Center(
+                                                        child: Text('88',style: Theme.of(context).textTheme.display1),
+                                                    )
+                                                ),
+                                            ),
+                                        ],
+                                    ),
 
-											Padding(
-												// 上下左右各添加8像素补白
-												padding: EdgeInsets.all(8.0),
-												child: Container(
-													height: 320.0,
-													// width: 120.0,
-													color: Colors.blue[50],
-													child: Align(
-														alignment: Alignment(1.0, -1.0),
-														child: FlutterLogo(
-															size: 60,
-														),
-													),
-												),
-											),
-											
-											Text('你点击了按钮次数:'),
+                                    Padding(
+                                        // 上下左右各添加8像素补白
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Container(
+                                            height: 100.0,
+                                            // width: 120.0,
+                                            color: Colors.blue[50],
+                                            child: Align(
+                                                alignment: Alignment(1.0, -1.0),
+                                                child: FlutterLogo(
+                                                    size: 60,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
 
-											Text('$counter',
-												style: Theme.of(context).textTheme.display1,
-											),
+                                    FlatButton(
+                                        padding: EdgeInsets.all(0.0),
+                                        child: Text("列表页", style: TextStyle(color: Colors.white),),
+                                        textColor: Colors.blue,
+                                        color: Colors.red,
+                                        onPressed: () {
+                                            //导航到新路由
+                                            Navigator.pushNamed(context, "detail_page");   
+                                        },
+                                    ),
+                                    FlatButton(
+                                        color: Colors.yellow,
+                                        padding: EdgeInsets.all(0.0),
+                                        child: Text("Sliver_Demo 页面"),
+                                        textColor: Colors.blue,
+                                        onPressed: () {
+                                            //导航到新路由
+                                            Navigator.pushNamed(context, "sliver_page");   
+                                        },
+                                    ),
+                                ],
+                            ),
+						),
 
-											FlatButton(
-												child: Text("列表页"),
-												textColor: Colors.blue,
-												onPressed: () {
-													//导航到新路由
-													Navigator.pushNamed(context, "detail_page");   
-												},
-											),
-										],
-									),
-								// ),
-							// ),
-						)
+                        Column(
+                             children: <Widget>[
+                                Flex(
+                                    direction: Axis.horizontal,
+                                    children: <Widget>[
+                                        Expanded(
+                                            flex: 6,
+                                            child: Container(
+                                                margin: EdgeInsets.all(10.0), // 容器外填充
+                                                constraints: BoxConstraints.tightFor(width: 150.0,height: 100.0), // 卡片大小
+                                                decoration: BoxDecoration( // 背景装饰
+                                                    boxShadow: [  // 卡片阴影
+                                                        BoxShadow(
+                                                            color: Colors.black12,
+                                                            offset: Offset(1.0, 1.0),
+                                                            blurRadius: 4.0
+                                                        )
+                                                    ]
+                                                ),
+                                                child: Card(
+                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadiusDirectional.circular(4)),
+                                                    clipBehavior: Clip.antiAlias,
+                                                    child: Image.asset(
+                                                        "assets/img/nbabg.png",
+                                                        fit: BoxFit.cover
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        Expanded(
+                                            flex: 7,
+                                            child: Container(
+                                                margin: EdgeInsets.only( top:10.0, right: 10.0, bottom: 10.0), //容器
+                                                constraints: BoxConstraints.tightFor(height: 100.0), //卡片大小
+                                                child: new Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start, //子组件的在交叉轴的对齐方式为起点
+                                                    mainAxisAlignment:MainAxisAlignment.spaceBetween ,//子组件在主轴的排列方式为两端对齐
+                                                    children: <Widget>[
+                                                        new Container(
+                                                            child:new Text(
+                                                                "北京故宫是中国明清两代的皇家宫殿，旧称紫禁城，位于北京中轴线的中心，是中国古代宫廷建筑之精华。北京故宫以三大殿为中心，占地面积72万平方米，建筑面积约15万平方米",
+                                                                style: new TextStyle(fontSize: 14.0),
+                                                                overflow: TextOverflow.ellipsis,
+                                                                maxLines: 2,
+                                                            ), 
+                                                        ),
+                                                        new Container(
+                                                            child:new Row(
+                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,//子组件在主轴的排列方式为两端对齐
+                                                                children: <Widget>[
+                                                                    new Text(
+                                                                        '苏氏之道',
+                                                                    ), 
+                                                                    new Text(
+                                                                        '2018-03-11',
+                                                                    ), 
+                                                                ],
+                                                            )
+                                                        ),
+                                                    ],
+                                                ),
+                                            )
+                                       ),
+                                    ],
+                                )
+                            ]
+                        ),
 					]
 				)
 			)

@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
 	final List<Widget> _children = [
 		new HomeTabPage( counter: 4),
 		new RecordPage(),
-		new MyPage('我的主页')
+		new MyPage()
 	];
 	final List<String> _bar = [
 		'首页','报价列表','我的'
@@ -53,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
 				automaticallyImplyLeading : false,
 				centerTitle: true,
 				elevation:0,
-				
 				actions: <Widget>[
 					// 非隐藏的菜单
 					new IconButton(
@@ -78,20 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
 						},
 					),
 				],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 			),
 			bottomNavigationBar: BottomNavigationBar( // 底部导航

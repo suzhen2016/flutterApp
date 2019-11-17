@@ -8,6 +8,7 @@ import './src/view/home.dart';
 import './src/view/detail.dart';
 import './src/view/record.dart';
 import './src/view/editPage.dart';
+import './src/view/sliverDemo.dart';
 
 // void main() => runApp(MyApp());
 void main() {
@@ -38,10 +39,11 @@ class MyApp extends StatelessWidget {
         // "pick_page": (context)=> MyImagePage(),
         "edit_page" : (contenxt) => EditPage(),
         "record_page" : (context)=> RecordPage(),
-        "home_page" : (context)=> MyHomePage(title: '首页'),
+        "home_page" : (context)=> MyHomePage(),
+        "sliver_page" : (context)=> SliverDemoMain(),
       } ,
       home: MyHomePage(title: '首页'),
-		);
+	);
   }
 }
 
