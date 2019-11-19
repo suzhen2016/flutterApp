@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'homeTab.dart';
 import './record.dart';
 import './myPage.dart';
+import './form.dart';
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -18,10 +19,11 @@ class _MyHomePageState extends State<MyHomePage> {
 	final List<Widget> _children = [
 		new HomeTabPage( counter: 4),
 		new RecordPage(),
+        new FormDemo(),
 		new MyPage()
 	];
 	final List<String> _bar = [
-		'首页','报价列表','我的'
+		'首页','列表','form','我的'
 	];
 	void _incrementCounter() {
 		setState(() {
@@ -80,13 +82,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
 			),
 			bottomNavigationBar: BottomNavigationBar( // 底部导航
+                type : BottomNavigationBarType.fixed, // 解决大于四个就空白的问题
 				items: <BottomNavigationBarItem>[
 					BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
-					BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('报价记录')),
+					BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('列表')),
+                    BottomNavigationBarItem(icon: Icon(Icons.people), title: Text('form')),
 					BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('我的')),
 				],
 				currentIndex: _selectedIndex,
-				fixedColor: Colors.blue,
+				fixedColor: Colors.blue, // 激活状态下的颜色
 				onTap: _onItemTapped, // 点击事件执行方法切换body内容
 			),
 			body: _children[_selectedIndex], // 内容区域 HomeTabPage(counter: _counter),
@@ -100,6 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
   	void _onItemTapped(int index) {
 		  setState(() {
 				_selectedIndex = index;
+                print(index);
 			});
   		}
 }

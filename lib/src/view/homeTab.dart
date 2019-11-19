@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import './../components/auto.dart';
+import './../components/webview.dart';
 
 class HomeTabPage extends StatelessWidget {
   
@@ -27,7 +28,7 @@ class HomeTabPage extends StatelessWidget {
 									// margin: EdgeInsets.only(left: 40, top: 40),
 									// 设置 child 居中
 									alignment: Alignment(0, 0),
-									height: 230.0,
+									height: 210.0,
 									// width: 300,
 									// 边框设置
 									decoration: new BoxDecoration(
@@ -54,7 +55,9 @@ class HomeTabPage extends StatelessWidget {
 											// 	// width: 300.0
 											// 	fit: BoxFit.cover
 											// ),
-											Card(
+											AspectRatio(
+                                                aspectRatio: 16/9,
+                                                child: Card(
 												shape: RoundedRectangleBorder(
 													borderRadius: BorderRadiusDirectional.circular(15)),
 													clipBehavior: Clip.antiAlias,
@@ -64,9 +67,23 @@ class HomeTabPage extends StatelessWidget {
 														fit: BoxFit.cover
 													),
 											),
+                                            )
 										],
 									),
 								),
+                                Positioned.fill(
+                                    child: Material(
+                                        color: Colors.transparent,
+                                        child: InkWell(
+                                            splashColor: Colors.white.withOpacity(0.3),
+                                            highlightColor: Colors.white.withOpacity(0.1),
+                                            onTap: () {
+                                                debugPrint('飘');
+                                            }
+                                        ),
+                                        
+                                    ),
+                                )
 							],
 						),
 
@@ -157,27 +174,61 @@ class HomeTabPage extends StatelessWidget {
                                             ),
                                         ),
                                     ),
-
-                                    FlatButton(
-                                        padding: EdgeInsets.all(0.0),
-                                        child: Text("列表页", style: TextStyle(color: Colors.white),),
-                                        textColor: Colors.blue,
-                                        color: Colors.red,
-                                        onPressed: () {
-                                            //导航到新路由
-                                            Navigator.pushNamed(context, "detail_page");   
-                                        },
+                                    Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: <Widget>[
+                                            FlatButton(
+                                                padding: EdgeInsets.all(0.0),
+                                                child: Text("列表页", style: TextStyle(color: Colors.black,fontSize: 20.0),),
+                                                textColor: Colors.blue,
+                                                // color: Colors.red,
+                                                onPressed: () {
+                                                    //导航到新路由
+                                                    Navigator.pushNamed(context, "detail_page");   
+                                                },
+                                            ),
+                                            FlatButton(
+                                                // color: Colors.yellow,
+                                                padding: EdgeInsets.all(0.0),
+                                                child: Text("Sliver_Demo 页面"),
+                                                textColor: Colors.blue,
+                                                onPressed: () {
+                                                    //导航到新路由
+                                                    Navigator.pushNamed(context, "sliver_page");    // 注册路由页面
+                                                },
+                                            ),
+                                            FlatButton(
+                                                child: Text("嵌套H5页面"),
+                                                // textColor: Colors.blue,
+                                                onPressed: () {
+                                                    //导航到新路由
+                                                    // Navigator.pushNamed(context, "sliver_page");   
+                                                    Navigator.of(context).push(  // 无注册路由下的跳转
+                                                        MaterialPageRoute(
+                                                            builder: (BuildContext content) => NewsWebPage(title: '欢迎')
+                                                        )
+                                                    );
+                                                },
+                                            )
+                                        ],
                                     ),
-                                    FlatButton(
-                                        color: Colors.yellow,
-                                        padding: EdgeInsets.all(0.0),
-                                        child: Text("Sliver_Demo 页面"),
-                                        textColor: Colors.blue,
-                                        onPressed: () {
-                                            //导航到新路由
-                                            Navigator.pushNamed(context, "sliver_page");   
-                                        },
-                                    ),
+                                    Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: <Widget>[
+                                            FlatButton(
+                                                child: Text("百度"),
+                                                onPressed: () {
+                                                    //导航到新路由
+                                                    Navigator.of(context).push(  // 无注册路由下的跳转
+                                                        MaterialPageRoute(
+                                                            builder: (BuildContext content) => WebViewPage(title: '百度', url : 'https://www.baidu.com')
+                                                        )
+                                                    );
+                                                },
+                                            ),
+                                        ],
+                                    )
+                                    
                                 ],
                             ),
 						),

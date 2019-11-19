@@ -91,7 +91,6 @@ class SliverListDemo extends StatelessWidget {
                                                         Text('记者：苏镇',style: TextStyle(fontSize: 20.0,color: Colors.white),),
                                                         Text('时间：2012-12-02',style: TextStyle(fontSize: 16.0,color: Colors.white),)
                                                     ],
-                                                    // child: 
                                                 ),
                                             )
                                             

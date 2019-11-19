@@ -9,7 +9,7 @@ import './src/view/detail.dart';
 import './src/view/record.dart';
 import './src/view/editPage.dart';
 import './src/view/sliverDemo.dart';
-
+// import './src/view/form.dart';
 // void main() => runApp(MyApp());
 void main() {
   runApp(new MyApp());
@@ -22,29 +22,32 @@ void main() {
 
 // 主页面home
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,  //去除右上角的Debug标签
-      title: '利小保',
-      theme: ThemeData(
-        primarySwatch: Colors.red,    // 主题色
-      ),
-		
-      // BackButtonIcon: Icon(Icons.arrow_back_ios, color: Colors.white), //自定义图标
-      // 注册路由表
-      routes:{
-        "detail_page": (context)=> DetailPage(),
-        // "pick_page": (context)=> MyImagePage(),
-        "edit_page" : (contenxt) => EditPage(),
-        "record_page" : (context)=> RecordPage(),
-        "home_page" : (context)=> MyHomePage(),
-        "sliver_page" : (context)=> SliverDemoMain(),
-      } ,
-      home: MyHomePage(title: '首页'),
-	);
-  }
+    // This widget is the root of your application.
+    @override
+    Widget build(BuildContext context) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,  //去除右上角的Debug标签
+            title: '利小保',
+            theme: ThemeData(
+                primaryColor: Colors.red,  // Color.fromRGBO(255, 255, 255, 0.5),
+                primaryColorLight: Colors.blue,
+            ), // 主题
+            
+            // BackButtonIcon: Icon(Icons.arrow_back_ios, color: Colors.white), //自定义图标
+
+            // 注册路由表
+            initialRoute: 'home_page',
+            routes:{
+                "detail_page": (context)=> DetailPage(),
+                // "qinzi": (context)=> FormDemo(),
+                "edit_page" : (contenxt) => EditPage(),
+                "record_page" : (context)=> RecordPage(),
+                "home_page" : (context)=> MyHomePage(),
+                "sliver_page" : (context)=> SliverDemoMain(),
+            } ,
+            home: MyHomePage(title: '首页'),
+        );
+    }
 }
 
 
