@@ -30,6 +30,7 @@ class SliverDemoMain extends StatelessWidget{
                             background: Image.asset('assets/img/zhong3.png',
                                 fit: BoxFit.cover,),
                         ),
+                        elevation:10.0,
                     ),
                     SliverSafeArea(
                         sliver: SliverPadding(
@@ -39,8 +40,7 @@ class SliverDemoMain extends StatelessWidget{
                             // list列表
                             sliver:SliverListDemo()
                         ),
-                    )
-                    
+                    ),
                 ],
             ),
         );
@@ -66,10 +66,6 @@ class SliverListDemo extends StatelessWidget {
                                         children: <Widget>[
                                             AspectRatio(
                                                 aspectRatio: 16/9,
-                                                // child : Image.asset(
-                                                //                 "assets/img/zhong1.png",
-                                                //                 fit: BoxFit.cover
-                                                //         ),
                                                 child: Card(
                                                     margin: EdgeInsets.all(0.0),
                                                         shape: RoundedRectangleBorder(

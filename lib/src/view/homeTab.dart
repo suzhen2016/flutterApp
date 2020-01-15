@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './../components/auto.dart';
 import './../components/webview.dart';
+import './../components/sliverView.dart';
 
 class HomeTabPage extends StatelessWidget {
   
@@ -55,18 +56,18 @@ class HomeTabPage extends StatelessWidget {
 											// 	// width: 300.0
 											// 	fit: BoxFit.cover
 											// ),
-											AspectRatio(
+                                            AspectRatio(
                                                 aspectRatio: 16/9,
                                                 child: Card(
-												shape: RoundedRectangleBorder(
-													borderRadius: BorderRadiusDirectional.circular(15)),
-													clipBehavior: Clip.antiAlias,
-													child: Image.asset(
-														"assets/img/nbabg.png",
-														// width: double.maxFinite,
-														fit: BoxFit.cover
-													),
-											),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadiusDirectional.circular(15)),
+                                                    clipBehavior: Clip.antiAlias,
+                                                    child: Image.asset(
+                                                        "assets/img/nbabg.png",
+                                                        // width: double.maxFinite,
+                                                        fit: BoxFit.cover
+                                                    ),
+                                                ),
                                             )
 										],
 									),
@@ -81,7 +82,6 @@ class HomeTabPage extends StatelessWidget {
                                                 debugPrint('飘');
                                             }
                                         ),
-                                        
                                     ),
                                 )
 							],
@@ -226,6 +226,17 @@ class HomeTabPage extends StatelessWidget {
                                                     );
                                                 },
                                             ),
+                                            FlatButton(
+                                                child: Text("sliver 2"),
+                                                onPressed: () {
+                                                    //导航到新路由
+                                                    Navigator.of(context).push(  // 无注册路由下的跳转
+                                                        MaterialPageRoute(
+                                                            builder: (BuildContext content) => SliverViewPage()
+                                                        )
+                                                    );
+                                                },
+                                            ),
                                         ],
                                     )
                                     
@@ -306,9 +317,6 @@ class HomeTabPage extends StatelessWidget {
 		);
    }
 }
-
-
-
 
 
 

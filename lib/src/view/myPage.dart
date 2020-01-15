@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import './../components/button.dart';
 class MyPage extends StatelessWidget{
     @override
       Widget build(BuildContext context) {
@@ -11,6 +11,7 @@ class MyPage extends StatelessWidget{
                         SizedBox(
                             height: 20.0,
                         ),
+
                         PageViewBuildDemo(),
 
                         SizedBox(
@@ -40,7 +41,6 @@ class GridViewDemo extends StatelessWidget {
     // }
     @override
       Widget build(BuildContext context) {
-        // TODO: implement build
         return Container(
             height: 200.0,
             child: GridView.count(
@@ -51,7 +51,17 @@ class GridViewDemo extends StatelessWidget {
                      Container(
                         alignment: Alignment(0.0, 0.0),
                         color: Colors.grey[300],
-                        child: Text('苏镇1'),
+                        child: FlatButton(
+                                child: Text('button'),
+                                onPressed: () {
+                                    print('开始');
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (BuildContext content) => ButtonDemo()
+                                        )
+                                    );
+                                },
+                            ),
                     ),
                     Container(
                         alignment: Alignment(0.0, 0.0),
@@ -99,7 +109,6 @@ class PageViewBuildDemo extends StatelessWidget{
                 SizedBox.expand(        // 自动铺满宽度
                     child: Image.asset('assets/img/nbabg.png',
                     fit: BoxFit.cover,)
-
                 ),
                 Positioned(
                     bottom: 8.0,
@@ -115,9 +124,9 @@ class PageViewBuildDemo extends StatelessWidget{
             ],
         );
     }
+
     @override
-      Widget build(BuildContext context) {
-        // TODO: implement build
+    Widget build(BuildContext context) {
         return Container(
             height: 150.0,
             child: PageView.builder(
@@ -125,7 +134,7 @@ class PageViewBuildDemo extends StatelessWidget{
                 itemBuilder: _pageItemBuilder,
             ),
         );
-      }
+    }
 }
 
 class PageViewDemo extends StatelessWidget{

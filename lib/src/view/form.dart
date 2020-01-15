@@ -34,6 +34,8 @@ class _FromDemoState extends State<FromDemo> {
     String username = '';
     String password = '';
 
+    bool autovalidate = false;
+
     String validatorUsername (value) {
         if (value.isEmpty) {
             return 'userName 不能为空';
@@ -43,9 +45,21 @@ class _FromDemoState extends State<FromDemo> {
     
     // 提交登录信息，发起获取form表单值与验证字段
     void submitLogin () {
-        logoinFormkey.currentState.validate();  // 验证字段
-        logoinFormkey.currentState.save();      // 获取数据
-        debugPrint('登录成功:用户名：$username, 密码： $password');
+        if (logoinFormkey.currentState.validate()) { // 验证字段
+            logoinFormkey.currentState.save();      // 获取数据
+            debugPrint('登录成功:用户名：$username, 密码： $password');
+            // 登录提示信息
+            Scaffold.of(context).showSnackBar(
+                SnackBar(
+                    content: Center(child : Text('登录中...')),
+                )
+            );
+        } else {    // 不过增加验证提示
+            setState(() {
+                autovalidate = true;  
+            });
+        }
+        
     }
 
     String validatorPassword (value) {
@@ -70,7 +84,7 @@ class _FromDemoState extends State<FromDemo> {
                             username = value;
                         },
                         validator: validatorUsername,
-
+                        autovalidate: autovalidate,
                     ),
                     TextFormField(
                         obscureText: true,
@@ -82,6 +96,7 @@ class _FromDemoState extends State<FromDemo> {
                             password = value;
                         },
                         validator: validatorPassword,
+                        autovalidate: autovalidate,
                     ),
                     SizedBox(
                         height: 15.0,
